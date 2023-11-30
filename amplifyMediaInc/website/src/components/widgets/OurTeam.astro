@@ -1,0 +1,58 @@
+---
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+import { Image } from 'astro:assets';
+import jules from '../../assets/images/julian.jpg';
+import mile from '../../assets/images/mile.jpg';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<section>
+  <div class="mt-16">
+    <h2 class="text-center font-bold leading-tighter tracking-tighter font-heading text-heading text-4xl">
+      {t('team.title')}
+      <h3 class="text-center text-lg mt-4 text-muted">
+        {t('team.subtitle')}
+      </h3>
+    </h2>
+  </div>
+  <div class="flex mt-4 lg:flex-row flex-col p-8 md:p-16 gap-16 justify-center 2xl:p-16">
+    <div class="flex gap-4 md:flex-row flex-col max-w-4xl">
+      <Image
+        class="w-56 xl-w-72 aspect-[9/16] rounded-lg shadow-lg shadow-secondary dark:shadow-black"
+        src={mile}
+        alt={'Mile in a suit smiling'}
+        width="600"
+        height="600"
+        decoding="async"
+        loading="lazy"
+      />
+      <div class="py-12 max-w-2xl pl-4 leading-tight">
+        <h2 class="font-bold text-3xl leading-tight">Mile D.</h2>
+        <h3 class="font-semibold text-2xl text-primary dark:text-slate-300 leading-tight">{t('team.cofounder')}</h3>
+        <p class="text-muted mt-4">
+          {t('team.mileDescription')}
+        </p>
+      </div>
+    </div>
+    <div class="flex gap-4 md:flex-row flex-col max-w-4xl">
+      <Image
+        class="w-56 xl-w-72 aspect-[9/16] rounded-lg shadow-lg shadow-secondary dark:shadow-black"
+        src={jules}
+        alt={'Julian in a suit smiling'}
+        width="600"
+        height="600"
+        decoding="async"
+        loading="lazy"
+      />
+      <div class="py-12 max-w-2xl pl-4">
+        <h2 class="font-bold text-3xl leading-tight">Julian E.</h2>
+        <h3 class="font-semibold text-2xl text-primary dark:text-slate-300">{t('team.cofounder')}</h3>
+        <p class="text-muted mt-4">
+         {t('team.julianDescription')}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
